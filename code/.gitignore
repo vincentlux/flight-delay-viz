@@ -1,5 +1,6 @@
 __pycache__/
 .ipynb_checkpoints/
+**/data
 
 passw.py
 test_connection.py
