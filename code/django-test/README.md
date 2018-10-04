@@ -10,3 +10,5 @@ python manage.py runserver 8080
 * Run `python manage.py makemigrations` to create migrations for those changes
 * Run `python manage.py migrate` to apply those changes to the database.
 
+## Tutorials
+https://docs.djangoproject.com/en/2.1/intro/tutorial03/
