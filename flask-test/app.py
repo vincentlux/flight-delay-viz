@@ -1,4 +1,6 @@
 #!/anaconda/envs/py36/bin/python3.6.5
+
+# credit to https://github.com/yosiasz/d3-python-flask-mysql/
 from flask import Flask, jsonify, render_template, redirect, url_for
 from flask_cors import CORS
 from flask import g
