@@ -29,8 +29,10 @@ def db_disconnect(response):
   
 @app.route('/')
 def home():
+    colours = ['Red', 'Blue', 'Black', 'haha']
     '''return render_template('index.html',  title = 'Projects')'''
-    return redirect(url_for('static', filename='flight.html'))
+    # return redirect(url_for('static', filename='flight.html'))
+    return render_template('flight.html',colours=colours)
 
 
 @app.route("/flight", methods=['GET'])

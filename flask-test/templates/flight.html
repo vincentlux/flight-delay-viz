@@ -4,12 +4,20 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>staticDropdown</title>
+    <title>templatesDropdown</title>
 </head>
 <body>
+    <select name="colour" method="GET" action="/">
+        <option value="{{colours[0]}}" SELECTED>{{colours[0]}}</option>
+        {% for colour in colours[1:] %}
+          <option value="{{colour}}">{{colour}}</option>
+        {% endfor %}
+    </select>
+
+
 
 <script>
-
+    //**********code for get data***********
     var url = 'http://127.0.0.1:5000/flight';
     d3.json(url, function(error, data) {
         // Convert strings to numbers.
@@ -19,7 +27,7 @@
             console.log(d);
         });
     });
-
+    //**************************************
 </script>
 
 </body>
