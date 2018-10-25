@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="//d3js.org/d3.v4.min.js"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <title>staticDropdown</title>
+</head>
+<body>
+
+<script>
+
+    var url = 'http://127.0.0.1:5000/flight';
+    d3.json(url, function(error, data) {
+        // Convert strings to numbers.
+        data.forEach(function(d) {
+            d.id = +d.id;
+            d.ArrDelay = +d.ArrDelay;
+            console.log(d);
+        });
+    });
+
+</script>
+
+</body>
+</html>

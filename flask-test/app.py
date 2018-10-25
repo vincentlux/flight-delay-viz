@@ -43,13 +43,7 @@ def flight():
     json_data=[]
     for item in data:
         json_data.append(dict(zip(row_headers,item)))
-        # i = {
-        # 'Year':item[0],
-        # 'Quarter':item[1],
-        # 'Month':item[2],
-        # 'DayOfMonth':item[3]
-        # }
-        # flight_list.append(i)
+
     data = json.dumps(json_data)
     resp = Response(data, status=200, mimetype='application/json')
     return resp
