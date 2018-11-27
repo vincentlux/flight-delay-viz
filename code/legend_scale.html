@@ -1,0 +1,56 @@
+
+<html>
+<head>
+  <title>D3 Visualizing Rotation</title>
+  <meta charset="utf-8" />
+</head>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/colorbrewer.v1.min.js"></script>
+<script src="legend.js"></script>
+<style>
+  body, html {
+    width:100%;
+    height:100%;
+  }
+  #vizcontainer {
+    width:100%;
+    height:100%;
+  }
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+</style>
+<body onload="legendDemo()">
+
+<div id="vizcontainer">
+<svg></svg>
+</div>
+  <footer>
+<script>
+   function legendDemo() {
+
+sampleNumerical = [0,15,30,45,60];
+sampleThreshold=d3.scale.threshold()
+    .domain(sampleNumerical)
+    .range(colorbrewer.RdYlGn[5]);
+
+horizontalLegend = d3.svg.legend()
+  .units("Delay Severity")
+  .cellWidth(120)
+  .cellHeight(25)
+  .inputScale(sampleThreshold)
+  .cellStepping(100);
+
+d3.select("svg")
+  .append("g")
+  .attr("transform", "translate(50,70)")
+  .attr("class", "legend")
+  .call(horizontalLegend);
+
+
+}
+</script>
+  </footer>
+</body>
+</html>

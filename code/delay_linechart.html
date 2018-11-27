@@ -1,0 +1,513 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .chart-wrapper {
+            width: 850px;
+            height: 550px;
+            margin: 0 auto;
+            background-color: #FAF7F7;
+        }
+
+        .chart-wrapper .inner-wrapper {
+            position: relative;
+            padding-bottom: 50%;
+            width: 100%;
+        }
+
+        .chart-wrapper .outer-box {
+            position: absolute;
+            top: 0; bottom: 0; left: 0; right: 0;
+        }
+
+        .chart-wrapper .inner-box {
+            width: 100%;
+            height: 100%;
+        }
+
+        .chart-wrapper text {
+            font-family: sans-serif;
+            font-size: 14px;
+        }
+
+        .chart-wrapper p {
+            font-size: 16px;
+            margin-top:5px;
+            margin-bottom: 40px;
+        }
+
+        .chart-wrapper .axis path,
+        .chart-wrapper .axis line {
+            fill: none;
+            stroke: #1F1F2E;
+            stroke-opacity: 0.9;
+            shape-rendering: crispEdges;
+
+        }
+        .chart-wrapper .axis path {
+            stroke-width: 5px;
+        }
+
+        .chart-wrapper .line {
+            fill: none;
+            stroke: steelblue;
+            stroke-width: 5px;
+        }
+
+        .chart-wrapper .legend  {
+            min-width: 200px;
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            font-size: 16px;
+            padding: 10px 40px;
+        }
+        .chart-wrapper .legend > div {
+            margin: 75px 25px 0px 20px;
+            flex-grow: 0;
+        }
+        .chart-wrapper .legend p {
+            display:inline;
+            font-size: 0.8em;
+            font-family: sans-serif;
+            font-weight: 600;
+        }
+        .chart-wrapper .legend .series-marker {
+            height: 1em;
+            width: 1em;
+            border-radius: 35%;
+            background-color: crimson;
+            display: inline-block;
+            margin-right: 4px;
+            margin-bottom: -0.16rem;
+        }
+
+        .chart-wrapper .overlay {
+            fill: none;
+            pointer-events: all;
+        }
+
+        .chart-wrapper .focus circle {
+            fill: crimson;
+            stroke: crimson;
+            stroke-width: 2px;
+            fill-opacity: 15%;
+        }
+        .chart-wrapper .focus rect {
+            fill: lightblue;
+            opacity: 0.4;
+            border-radius: 2px;
+        }
+        .chart-wrapper .focus.line {
+            stroke: steelblue;
+            stroke-dasharray: 2,5;
+            stroke-width: 2;
+            opacity: 0.5;
+        }
+        @media (max-width:500px){
+            .chart-wrapper .line {stroke-width: 3px;}
+            .chart-wrapper .legend {font-size: 14px;}
+        }
+    </style>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+</head>
+<body>
+<div class="">
+
+</div>
+
+<div class="chart-wrapper" id="chart-line1"></div>
+
+<script type="text/javascript">
+
+    // =====================================================================================
+
+    // Reference
+    // http://bl.ocks.org/asielen/44ffca2877d0132572cb
+
+    // =====================================================================================
+
+    var data = [
+        {FlightDate:"2017-01-17", UniqueCarrier: "AA", CarrierDelay: 20.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-01-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 30.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-01-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-01-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-01-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 15.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-01-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 27.0},
+        {FlightDate:"2017-01-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 18.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-02-17", UniqueCarrier: "AA", CarrierDelay: 16.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-02-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 20.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-02-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-02-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 5.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-02-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 1.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-02-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 8.0, SecurityDelay: 0.0, LateAircraftDelay: 34.0},
+        {FlightDate:"2017-02-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 8.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-03-17", UniqueCarrier: "AA", CarrierDelay: 7.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 9.0},
+        {FlightDate:"2017-03-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 40.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-03-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-03-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-03-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 5.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-03-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 20.0},
+        {FlightDate:"2017-03-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 26.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-04-17", UniqueCarrier: "AA", CarrierDelay: 9.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-04-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 4.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-04-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-04-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 16.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-04-17", UniqueCarrier: "AA", CarrierDelay: 8.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 8.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-04-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 44.0},
+        {FlightDate:"2017-04-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 18.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-05-17", UniqueCarrier: "AA", CarrierDelay: 20.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 35.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-05-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 7.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-05-17", UniqueCarrier: "AA", CarrierDelay: 10.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-05-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-05-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 15.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-05-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 54.0},
+        {FlightDate:"2017-05-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 8.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-06-17", UniqueCarrier: "AA", CarrierDelay: 5.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-06-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 3.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-06-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-06-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-06-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 9.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-06-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 30.0},
+        {FlightDate:"2017-06-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 18.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-07-17", UniqueCarrier: "AA", CarrierDelay: 20.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-07-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 30.0, NASDelay: 7.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-07-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-07-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-07-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 5.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-07-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 42.0},
+        {FlightDate:"2017-07-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 18.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-08-17", UniqueCarrier: "AA", CarrierDelay: 20.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-08-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 30.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-08-17", UniqueCarrier: "AA", CarrierDelay: 8.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-08-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-08-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 22.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-08-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 4.0},
+        {FlightDate:"2017-08-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 18.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-09-17", UniqueCarrier: "AA", CarrierDelay: 7.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-09-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 9.0, NASDelay: 0.0, SecurityDelay: .0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-09-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-09-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 5.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-09-17", UniqueCarrier: "AA", CarrierDelay: 30.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 15.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-09-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 24.0},
+        {FlightDate:"2017-09-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-10-17", UniqueCarrier: "AA", CarrierDelay: 2.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 7.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-10-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 30.0, NASDelay: 0.0, SecurityDelay: 8.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-10-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-10-17", UniqueCarrier: "AA", CarrierDelay: 10.0, WeatherDelay: 0.0, NASDelay: 4.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-10-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 3.0, NASDelay: 0.0, SecurityDelay: 5.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-10-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 5.0},
+        {FlightDate:"2017-10-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 18.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-11-17", UniqueCarrier: "AA", CarrierDelay: 20.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 7.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-11-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 30.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 9.0},
+        {FlightDate:"2017-11-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-11-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 8.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-11-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 7.0, NASDelay: 0.0, SecurityDelay: 15.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-11-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 4.0},
+        {FlightDate:"2017-11-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 18.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-12-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-12-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 3.0, NASDelay: 0.0, SecurityDelay: 8.0, LateAircraftDelay: 5.0},
+        {FlightDate:"2017-12-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-12-17", UniqueCarrier: "AA", CarrierDelay: 6.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-12-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 40.0, SecurityDelay: 1.0, LateAircraftDelay: 0.0},
+        {FlightDate:"2017-12-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: 0.0, SecurityDelay: 0.0, LateAircraftDelay: 4.0},
+        {FlightDate:"2017-12-17", UniqueCarrier: "AA", CarrierDelay: 0.0, WeatherDelay: 0.0, NASDelay: .0, SecurityDelay: 0.0, LateAircraftDelay: 0.0},
+
+]
+    
+    dataGetReady(data);
+    
+    function dataGetReady(data){
+        var oneDigit = d3.format(".1f");
+        var arrayNested = d3.nest()
+            .key(function(d) {return d.UniqueCarrier;})
+            .key(function(d) { return d.FlightDate.substring(5).replace("-","."); })
+            .rollup(function(d) {return {
+                carrier: oneDigit(d3.mean(d, function(s) { return s.CarrierDelay; })),
+                weather: oneDigit(d3.mean(d, function(s) { return s.WeatherDelay; })),
+                nas: oneDigit(d3.mean(d, function(s) { return s.NASDelay; })),
+                security: oneDigit(d3.mean(d, function(s) { return s.SecurityDelay; })),
+                aircraft: oneDigit(d3.mean(d, function(s) { return s.LateAircraftDelay; }))
+            }; })
+            .entries(data) 
+
+        // Get flattened data {airline: "AA", FlightDate: "01.17", carrier: "2.9", 
+        //                     weather: "4.3", nas: "2.6", security: "2.1", aircraft: "7.7"}
+        var flattened = [];
+        arrayNested.forEach(function(airline) {
+            airline.values.forEach(function(flight) {
+                flattened.push({
+                    airline: airline.key,
+                    FlightDate: flight.key,
+                    carrier: flight.values.carrier,
+                    weather: flight.values.weather,
+                    nas: flight.values.nas,
+                    security: flight.values.security,
+                    aircraft: flight.values.aircraft
+                });  
+            });
+        });
+
+        // input should be flattened
+        flattened.forEach(function(d) {
+            airline = +d.UniqueCarrier,
+            FlightDate = +d.FlightDate,
+            carrier = +d.carrier,
+            weather = +d.weather,
+            nas = +d.nas,
+            security = +d.security,
+            aircraft = +d.aircraft
+        });
+        //console.log(flattened)
+
+        // =================================================================================================
+        var chart = makeLineChart(flattened, 
+                                'FlightDate', 
+                                {'Carrier Delay': {column: 'carrier'},
+                                'Weather Delay': {column: 'weather'},
+                                'NAS Delay': {column: 'nas'},
+                                'Security Delay': {column: 'security'},
+                                'Late Aircraft Delay': {column: 'aircraft'}}, 
+                                {xAxis: 'Dates', yAxis: 'Severity of Delay (minutes)'}
+                            );
+        
+        chart.bind("#chart-line1");
+        chart.render();
+    };
+    
+
+
+    function makeLineChart(dataset, xName, yObjs, axisLables) {
+        var chartObj = {};
+        var color = d3.scale.category10();
+        chartObj.xAxisLable = axisLables.xAxis;
+        chartObj.yAxisLable = axisLables.yAxis;
+        chartObj.data = dataset;
+        chartObj.margin = {top: 15, right: 60, bottom: 30, left: 100};
+        chartObj.width = 800 - chartObj.margin.left - chartObj.margin.right;
+        chartObj.height = 480 - chartObj.margin.top - chartObj.margin.bottom;
+
+        // So we can pass the x and y as strings when creating the function
+        chartObj.xFunct = function(d){return d[xName]};
+
+        // For each yObjs argument, create a yFunction
+        function getYFn(column) {
+            return function (d) {
+                return d[column];
+            };
+        }
+
+        // Object instead of array
+        chartObj.yFuncts = [];
+        for (var y in yObjs) {
+            yObjs[y].name = y;
+            yObjs[y].yFunct = getYFn(yObjs[y].column);
+            chartObj.yFuncts.push(yObjs[y].yFunct);
+        }
+
+        // Return the max of every yFunct
+        chartObj.max = function (fn) {
+            return d3.max(chartObj.data, fn);
+        };
+
+        // Create scale functions
+        chartObj.xScale = d3.scale.linear()
+            .range([0, chartObj.width])
+            .domain(d3.extent(chartObj.data, chartObj.xFunct));        
+
+        chartObj.yScale = d3.scale.linear()
+            .range([chartObj.height, 0])
+            .domain([0, d3.max(chartObj.yFuncts.map(chartObj.max))]);
+   
+        
+        // Create axis
+        chartObj.xAxis = d3.svg.axis()
+            .scale(chartObj.xScale)
+            .orient("bottom")
+            .ticks(6)
+            .tickSize(10)
+            .tickFormat(d3.format(".0f")); 
+
+        chartObj.yAxis = d3.svg.axis()
+            .scale(chartObj.yScale)
+            .orient("left")
+            .tickSize(10); 
+
+        //Formatter functions for the axes
+        chartObj.xFormatter = d3.format(".0f");
+        chartObj.yFormatter = d3.format(".2f");
+
+        chartObj.bisectYear = d3.bisector(chartObj.xFunct).left; 
+
+        // Build line building functions
+        function getYScaleFn(yObj) {
+            return function (d) {
+                return chartObj.yScale(yObjs[yObj].yFunct(d));
+            };
+        }
+        
+        for (var yObj in yObjs) {
+            yObjs[yObj].line = d3.svg.line().interpolate("cardinal").x(function (d) {
+                return chartObj.xScale(chartObj.xFunct(d));
+            }).y(getYScaleFn(yObj));
+        }
+        
+
+        chartObj.svg;
+
+        
+        chartObj.bind = function (selector) {
+            chartObj.mainDiv = d3.select(selector);
+            // Add all the divs to make it centered and responsive
+            chartObj.mainDiv.append("div")
+                .attr("class", "inner-wrapper")
+                .append("div")
+                .attr("class", "outer-box")
+                .append("div")
+                .attr("class", "inner-box");
+            chartSelector = selector + " .inner-box";
+            chartObj.chartDiv = d3.select(chartSelector);
+            return chartObj;
+        };
+
+        // Render the chart
+        chartObj.render = function () {
+            //Create SVG element
+            chartObj.svg = chartObj.chartDiv.append("svg")
+                .attr("class", "chart-area")
+                .attr("width", chartObj.width + (chartObj.margin.left + chartObj.margin.right))
+                .attr("height", chartObj.height + (chartObj.margin.top + chartObj.margin.bottom))
+                .append("g")
+                .attr("transform", "translate(" + chartObj.margin.left + "," + chartObj.margin.top + ")");       
+
+            // Draw Lines
+            for (var y  in yObjs) {
+                yObjs[y].path = chartObj.svg.append("path")
+                    .datum(chartObj.data)
+                    .attr("class", "line")
+                    .attr("d", yObjs[y].line)
+                    .style("stroke", color(y))
+                    .attr("data-series", y)
+                    .on("mouseover", function () {
+                        focus.style("display", null);
+                    })
+                    .on("mouseout", function () {
+                        focus.transition().delay(700).style("display", "none");
+                    })
+                    .on("mousemove", mousemove);
+            }
+
+            // Draw Axis
+            chartObj.svg.append("g")
+                .attr("class", "x axis")
+                .attr("transform", "translate(0," + chartObj.height + ")")
+                .call(chartObj.xAxis)
+                .append("text")
+                .attr("class", "label")
+                .attr("x", chartObj.width / 2)
+                .attr("y", 30)
+                .style("text-anchor", "middle")
+                .text(chartObj.xAxisLable);
+
+            chartObj.svg.append("g")
+                .attr("class", "y axis")
+                .call(chartObj.yAxis)
+                .append("text")
+                .attr("class", "label")
+                .attr("transform", "rotate(-90)")
+                .attr("y", -42)
+                .attr("x", -chartObj.height / 2)
+                .attr("dy", "1em")
+                .style("text-anchor", "middle")
+                .text(chartObj.yAxisLable);
+
+
+            //Draw legend
+            var legend = chartObj.mainDiv.append('div').attr("class", "legend");
+            for (var y  in yObjs) {
+                series = legend.append('div');
+                series.append('div')
+                    .attr("class", "series-marker")
+                    .style("background-color", color(y));
+                series.append('p').text(y);
+                yObjs[y].legend = series;
+            }
+
+            // Draw tooltips
+            var focus = chartObj.svg.append("g")
+                .attr("class", "focus")
+                .style("display", "none");
+
+            for (var y  in yObjs) {
+                yObjs[y].tooltip = focus.append("g");
+                yObjs[y].tooltip.append("circle")
+                    .attr("r", 5);
+                yObjs[y].tooltip.append("rect")
+                    .attr("x", 8)
+                    .attr("y","-5")
+                    .attr("width",22)
+                    .attr("height",'0.75em');
+                yObjs[y].tooltip.append("text")
+                    .attr("x", 9)
+                    .attr("dy", ".35em");
+            }
+
+            // Date label
+            focus.append("text")
+                .attr("class", "focus date")
+                .attr("x", 9)
+                .attr("y", 7);
+            // Focus line
+            focus.append("line")
+                .attr("class", "focus line")
+                .attr("y1", 0)
+                .attr("y2", chartObj.height);
+
+            // Overlay to capture hover
+            chartObj.svg.append("rect")
+                .attr("class", "overlay")
+                .attr("width", chartObj.width)
+                .attr("height", chartObj.height)
+                .on("mouseover", function () {
+                    focus.style("display", null);
+                })
+                .on("mouseout", function () {
+                    focus.style("display", "none");
+                })
+                .on("mousemove", mousemove);
+
+            return chartObj;
+            function mousemove() {
+                var x0 = chartObj.xScale.invert(d3.mouse(this)[0]), 
+                    i = chartObj.bisectYear(dataset, x0, 1), 
+                    d0 = chartObj.data[i - 1], d1 = chartObj.data[i];
+                try {
+                    var d = x0 - chartObj.xFunct(d0) > chartObj.xFunct(d1) - x0 ? d1 : d0;
+                } catch (e) { return;}
+                minY = chartObj.height;
+                for (var y  in yObjs) {
+                    yObjs[y].tooltip
+                        .attr("transform", "translate(" + chartObj.xScale(chartObj.xFunct(d)) + "," + chartObj.yScale(yObjs[y].yFunct(d)) + ")");
+                    yObjs[y].tooltip
+                        .select("text")
+                        .text(chartObj.yFormatter(yObjs[y].yFunct(d)));
+                    minY = Math.min(minY, chartObj.yScale(yObjs[y].yFunct(d)));
+                }
+
+                focus.select(".focus.line")
+                    .attr("transform", "translate(" + chartObj.xScale(chartObj.xFunct(d)) + ")")
+                    .attr("y1", minY);
+                focus.select(".focus.date")
+                    .text("Date: " + chartObj.yFormatter(chartObj.xFunct(d)));
+            }
+            
+        };
+        return chartObj;
+    }
+
+</script>
+</body>
+</html>

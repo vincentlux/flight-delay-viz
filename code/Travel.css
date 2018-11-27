@@ -1,0 +1,129 @@
+header{grid-area: head;}
+.left{grid-area: left;}
+.right{grid-area: right;}
+.bar{grid-area: bar;}
+
+.wrapper1{
+	display: grid;
+	grid-gap: 0;
+    grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: auto auto auto;
+	grid-template-areas:
+        "head head head head "
+		"bar bar bar bar "
+		"left left right right";
+	background: linear-gradient(to bottom, rgba(255,255,255,.5), rgba(255,255,255,.2)90%), url("background.jpg");
+	background-position: center;
+	background-size: 100% 100%;
+}
+
+header{
+    text-align: left;
+	font-size: 2em;
+	font-family: 'Cabin Sketch', cursive;
+	font-weight: bold;
+	font-stretch: expanded;
+	padding-left: 30px;
+	padding-top: 10px;
+	background-color: #f6f1ed;
+	color: #5e0231;
+	border-bottom-style: solid;
+}
+
+.bar{
+	margin-top: 50px;
+	margin-bottom: 100px;
+}
+
+.left{
+	display: grid;
+	grid-column-start: 1;
+	grid-column-end: 3;
+	grid-row-start: 4;
+	grid-row-end: 5;
+	padding-left: 10px;
+	margin-right: 10px;
+	margin-bottom:10px;
+	background-color: rgba(255,255,255,.5);
+	color: #173e43;
+	font-size: 1.5em;
+	font-weight: normal;
+	font-family: 'Cabin Sketch', cursive;
+	text-align: left;
+	border-radius: 25px;
+	box-shadow: 0 0 5px #ddd;
+}
+
+.right{
+	display: grid;
+	grid-column-start: 3;
+	grid-column-end: 5;
+	grid-row-start: 4;
+	grid-row-end: 5;
+	padding-left: 70px;
+	margin-left: 10px;
+	margin-bottom:10px;
+	background-color: rgba(255,255,255,.5);
+	color: #173e43;
+	font-size: 1.5em;
+	font-weight: normal;
+	font-family: 'Cabin Sketch', cursive;
+	text-align: left;
+	border-radius: 25px;
+	box-shadow: 0 0 5px #ddd;
+}
+
+.left:hover, .right:hover{
+	transform: scale(1.02);
+}
+
+
+img{
+    max-width: 100%;
+	object-fit: cover;
+}
+
+
+h1{
+	color: black;
+	font-size: 3em;
+	font-family: 'Yeseva One', cursive;
+	text-align: center;
+	line-height: 0.8em;
+	text-shadow: 2px 2px 15px rgb(66, 74, 77);
+}
+
+h2{
+	color: #283018;
+	font-size: 2em;
+	font-family: 'Yeseva One', cursive;
+	text-align: center;
+	line-height:0.5em;
+}
+
+h3{
+	color: rgba(26, 19, 19, 0.849);
+	font-size: 1.2em;
+	font-family: 'Sedgwick Ave', cursive;
+	text-align: center;
+	line-height:0.5em;
+	text-shadow: 2px 2px 15px rgb(26, 66, 80);
+}
+
+figure{
+	overflow: hidden;
+}
+
+figure img{
+	filter: opacity(70%);
+	-webkit-transition: all 0.2s linear;
+        transition: all 0.2s linear;
+	-webkit-transition: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+}
+
+figure:hover img{
+	filter: opacity(100%);
+    transition: scale3d(1.1, 1.1, 1);
+        transform: scale3d(1.1, 1.1, 1);
+}
