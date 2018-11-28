@@ -2,23 +2,28 @@
 <html>
 <head>
     <title>Flight Delay Heatmap</title>
+    <link rel="stylesheet" href="Travel.css">
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Noto+Serif" rel="stylesheet">
     <script src="https://d3js.org/d3.v5.min.js" charset="utf-8"></script>
     <script src="legend.js"></script>
-    <style>
-
-        rect.bordered {
-            stroke: darkgray;
-            stroke-width:2px;   
-        }
-
-    </style>
 </head>
 
 <body onload="legendDemo()">
+        <div class="wrapper2">
+                <header><a href="index.html" style="text-decoration:none;">INLS 641 Group Project</a></header>	
+                
+                <div class="bar2">
+                    <h2>Flight Delay Data Visual Analytics</h2>
+                </div>
+    
+                <div class="chart">
+                    <div class="chart-wrapper2">
+                        <div id="heatmap"></div>
+                        <div id="legend"></div>
+                    </div>
+                </div>
+            </div>
 
-<h1>Flight Delay Heatmap</h1>
-<div id="heatmap"></div>
-<div id="legend"></div>
     <script type="text/javascript">
 
 
