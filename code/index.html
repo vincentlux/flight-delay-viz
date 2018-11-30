@@ -1,39 +1,65 @@
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-	<head>
-      <meta charset="utf-8">
-      <title>Flight Delay Data Visual Analytics</title>
-	  <link rel="stylesheet" href="Travel.css">
-      <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Noto+Serif" rel="stylesheet">
-	</head>
-   
-	<body>
-		<div class="wrapper1">
-			<header>INLS 641 Group Project</header>			
-			
-			<div class="bar1">
-				<h1>Flight Delay Data Visual Analytics</h1>
-			</div>
-		
-			<div class="left">
-				<a href="delay_heatmap.html">
-					<figure>
-						<img src="heatmap.jpg" alt="heatmap" width="550" height="300" />
-					</figure>
-				</a>
-				<h3>Heatmap</h3>
-			</div>
-		
-			<div class="right">
-				<a href="delay_linechart.html">
-					<figure>
-						<img src="linechart.jpg" alt="linechart" width="450" height="300" />
-					</figure>
-				</a>	
-				<h3>Line Chart</h3>
-			</div>
-        
-        </div>
-	</body>
+<head>
+	<meta charset="utf-8" />
+	<title>How should I fly?</title>
+	<link href="https://fonts.googleapis.com/css?family=Kalam" rel="stylesheet">
+
+	<style>
+		/* Container needed to position the button. Adjust the width as needed */
+		.container {
+			position: center;
+			width: 100%;
+		}
+
+		/* Make the image responsive */
+		.container img {
+			width: 90%;
+			height: 90%;
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		/* Style the button and place it in the middle of the container/image */
+		.container .btn {
+			position: absolute;
+			top: 70%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			-ms-transform: translate(-50%, -50%);
+			background-color: #555;
+			color: white;
+			font-size: 20px;
+			padding: 24px 48px;
+			border: none;
+			cursor: pointer;
+			border-radius: 45px;
+		}
+
+		.container .btn:hover {
+			background-color: lightslategray;
+		}
+
+		.container .name {
+			position: absolute;
+			top: 35%;
+			left: 30%;
+			color: rgb(71, 71, 71);
+			font-size: 80px;
+			font:bold;
+			font-family: 'Kalam', cursive;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<img src="background.jpg" alt="backgound">
+		<p class="name">How should I fly?</p>
+		<a href="dashboard.html"><button class="btn">Get Started</button></a>
+	</div>
+
+</body>
 </html>
