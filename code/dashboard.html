@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8" />
     <title>How should I fly?</title>
-    
+
     <script src="https://d3js.org/d3.v5.min.js" charset="utf-8"></script>
 
     <!-- Core CSS     -->
@@ -13,7 +13,6 @@
     <!--  Fonts and icons     -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
-    <link href="assets/css/themify-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
 </head>
@@ -30,10 +29,10 @@
             </div>
             <div class="nav">
                 <form>
-                    
+
                     <div style="background-color:#D9D9D9; border-radius: 12px">
                         <p style="font-size:16px; line-height:3; text-align: center;  margin-top: 20px">Departure</p>
-        
+
                         <p style="font-size:16px; line-height:3; margin:10px; text-align: right">
                             <!-- dropdown menu for departure state -->
                             <select name="departure_state" id="departure_state" onChange="changeDepAirport(this.value);" style="width:100%; padding: 10px; border-radius: 10px"></select>
@@ -48,7 +47,7 @@
                     <!-- adapted from https://stackoverflow.com/questions/30232146/dynamically-populating-drop-down-list-from-selection-of-another-drop-down-value -->
                     <div style="background-color:rgb(228, 228, 228); border-radius: 12px">
                         <p style="font-size:16px; line-height:3; margin:10px; text-align: center; background-color:rgb(228, 228, 228); margin-top: 15px">Arrival</p>
-    
+
                         <p style="font-size:16px; line-height:3; margin:10px; text-align: right">
                             <!-- dropdown menu for arrival state -->
                             <select name="arrival_state" id="arrival_state" onChange="changeArrivAirport(this.value);" style="width:100%; padding: 10px; border-radius: 10px"></select>
@@ -60,9 +59,9 @@
                             </select>
                         </p>
                     </div>
-    
-                    
-    
+
+
+
                     <!-- submit button for the departure and arrival parameters, which will visualize the data for that route -->
                     <p style="padding-left: 25px">
                         <!-- <button name="go" id="go" type="submit" onclick="retrieveRouteData()">Go!</button> -->
@@ -165,7 +164,7 @@
         var height = 310 - margin.top - margin.bottom;
         var gridSize = Math.floor(width / 24);
         var legendElementWidth = gridSize * 2;
-        
+
         var buckets = 5;
         var colors = ["#008000", "#6EB307", "#FFD000", "#FF8800", "#FF0000"];
 
@@ -227,7 +226,7 @@
         data.forEach(function(d){
             d.CRSDepTime =  pad_with_zeroes(d.CRSDepTime)
         });
-        
+
 
         // References
         // http://learnjsdata.com/group_data.html
@@ -245,12 +244,12 @@
                     DayOfWeek: subgroup.key,
                     Time: subgroup.values.map(function (d) {
                         return {CRSDepTime: d.key,
-                                avgDepDelay: d.value}       
+                                avgDepDelay: d.value}
                     })
                 }
             });
         // console.log(JSON.stringify(arrayNested));
-        
+
 
 
         // ===============================================================
@@ -313,21 +312,21 @@
         // var xScale = d3.scaleLinear()
         //     .domain([-width / 2, width / 2])
         //     .range([0, width]);
-    
+
         // // we'll do the same thing for the y axis except the positive values start from the top with height first in the range
         // // this allows us to have all positive coordinates (e.g [2,2]) in the top right hand corner.
         // var yScale = d3.scaleLinear()
         //     .domain([-height/2, height / 2])
         //     .range([height, 0]);
         // // this allows us to configure our axis and frequency of the lines in th grid,
-        // // notice the tick size streteches the length of the canvas. 
+        // // notice the tick size streteches the length of the canvas.
         // var xAxis = d3.axisBottom(xScale)
         //     .ticks(24)
         //     .tickSize(height + margin.top + margin.bottom);
         // var yAxis = d3.axisRight(yScale)
         //     .ticks(7)
         //     .tickSize(width);
-        //     // finally we can append our axis onto an svg group tag. 
+        //     // finally we can append our axis onto an svg group tag.
         // gX = svg.append("g")
         //     .attr("class", "axis axis--x")
         //     .call(xAxis);
@@ -355,12 +354,12 @@
             avgDepDelay = +d.avgDepDelay
         });
         // console.log(flattened)
-        
-            
+
+
         // ===============================================================
-        // Render heatmap. 
+        // Render heatmap.
         var heatmapChart = function(data) {
-            
+
             var cards = svg.selectAll(".CRSDepTime")
                 .data(data, function(d) {return d.DayOfWeek+':'+d.CRSDepTime;});
 
@@ -369,12 +368,12 @@
             cards.enter().append("rect")
                 .attr("x", function(d) { return (d.CRSDepTime) * gridSize; })
                 .attr("y", function(d) { return (d.DayOfWeek-1) * gridSize; })
-                .attr("rx", 4)      // define the radius of the ellipse used to 
+                .attr("rx", 4)      // define the radius of the ellipse used to
                 .attr("ry", 4)      // round off the corners of the rectangle.
                 .attr("class", "hour bordered")
                 .attr("width", gridSize)
                 .attr("height", gridSize)
-                .style("fill", function(d) { 
+                .style("fill", function(d) {
                     if (d.avgDepDelay <= 0) {
                         return colors[0];
                     } else if (d.avgDepDelay <= 15) {
@@ -386,15 +385,15 @@
                     } else {
                         return colors[4];
                     }
-                    
+
                     });
 
             cards.select("title").text(function(d) { return d.avgDepDelay; });
-            
+
             cards.exit().remove();
         }
         heatmapChart(flattened);
-        
+
     </script>
 
 </html>
