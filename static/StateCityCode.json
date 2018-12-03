@@ -1,0 +1,1002 @@
+[
+    {
+        "_id" : "U.S. Pacific Trust Territories and Possessions",
+        "City" : [ 
+            "Guam, TT", 
+            "Pago Pago, TT"
+        ],
+        "Code" : [ 
+            "GUM", 
+            "PPG"
+        ]
+    },
+    {
+        "_id" : "Vermont",
+        "City" : [ 
+            "Burlington, VT"
+        ],
+        "Code" : [ 
+            "BTV"
+        ]
+    },
+    {
+        "_id" : "West Virginia",
+        "City" : [ 
+            "Clarksburg/Fairmont, WV", 
+            "Charleston/Dunbar, WV"
+        ],
+        "Code" : [ 
+            "CKB", 
+            "CRW"
+        ]
+    },
+    {
+        "_id" : "South Dakota",
+        "City" : [ 
+            "Aberdeen, SD", 
+            "Rapid City, SD", 
+            "Sioux Falls, SD"
+        ],
+        "Code" : [ 
+            "ABR", 
+            "RAP", 
+            "FSD"
+        ]
+    },
+    {
+        "_id" : "Arkansas",
+        "City" : [ 
+            "Fort Smith, AR", 
+            "Fayetteville, AR", 
+            "Texarkana, AR", 
+            "Little Rock, AR"
+        ],
+        "Code" : [ 
+            "TXK", 
+            "FSM", 
+            "XNA", 
+            "LIT"
+        ]
+    },
+    {
+        "_id" : "Nebraska",
+        "City" : [ 
+            "Grand Island, NE", 
+            "Lincoln, NE", 
+            "Omaha, NE"
+        ],
+        "Code" : [ 
+            "LNK", 
+            "GRI", 
+            "OMA"
+        ]
+    },
+    {
+        "_id" : "Washington",
+        "City" : [ 
+            "Pasco/Kennewick/Richland, WA", 
+            "Spokane, WA", 
+            "Bellingham, WA", 
+            "Seattle, WA"
+        ],
+        "Code" : [ 
+            "BLI", 
+            "PSC", 
+            "GEG", 
+            "SEA"
+        ]
+    },
+    {
+        "_id" : "Missouri",
+        "City" : [ 
+            "Cape Girardeau, MO", 
+            "Joplin, MO", 
+            "Kansas City, MO", 
+            "St. Louis, MO", 
+            "Springfield, MO", 
+            "Columbia, MO"
+        ],
+        "Code" : [ 
+            "CGI", 
+            "MCI", 
+            "JLN", 
+            "STL", 
+            "COU", 
+            "SGF"
+        ]
+    },
+    {
+        "_id" : "Illinois",
+        "City" : [ 
+            "Springfield, IL", 
+            "Chicago, IL", 
+            "Bloomington/Normal, IL", 
+            "Quincy, IL", 
+            "Moline, IL", 
+            "Peoria, IL"
+        ],
+        "Code" : [ 
+            "SPI", 
+            "ORD", 
+            "PIA", 
+            "MDW", 
+            "UIN", 
+            "BMI", 
+            "MLI"
+        ]
+    },
+    {
+        "_id" : "Georgia",
+        "City" : [ 
+            "Albany, GA", 
+            "Brunswick, GA", 
+            "Valdosta, GA", 
+            "Atlanta, GA", 
+            "Savannah, GA", 
+            "Augusta, GA", 
+            "Columbus, GA"
+        ],
+        "Code" : [ 
+            "ABY", 
+            "VLD", 
+            "BQK", 
+            "ATL", 
+            "SAV", 
+            "AGS", 
+            "CSG"
+        ]
+    },
+    {
+        "_id" : "Wisconsin",
+        "City" : [ 
+            "La Crosse, WI", 
+            "Mosinee, WI", 
+            "Milwaukee, WI", 
+            "Eau Claire, WI", 
+            "Appleton, WI", 
+            "Green Bay, WI", 
+            "Rhinelander, WI", 
+            "Madison, WI"
+        ],
+        "Code" : [ 
+            "LSE", 
+            "RHI", 
+            "EAU", 
+            "CWA", 
+            "GRB", 
+            "MKE", 
+            "ATW", 
+            "MSN"
+        ]
+    },
+    {
+        "_id" : "Michigan",
+        "City" : [ 
+            "Marquette, MI", 
+            "Iron Mountain/Kingsfd, MI", 
+            "Pellston, MI", 
+            "Grand Rapids, MI", 
+            "Muskegon, MI", 
+            "Flint, MI", 
+            "Lansing, MI", 
+            "Escanaba, MI", 
+            "Traverse City, MI", 
+            "Detroit, MI", 
+            "Sault Ste. Marie, MI", 
+            "Kalamazoo, MI", 
+            "Saginaw/Bay City/Midland, MI", 
+            "Alpena, MI", 
+            "Hancock/Houghton, MI"
+        ],
+        "Code" : [ 
+            "ESC", 
+            "APN", 
+            "TVC", 
+            "MQT", 
+            "GRR", 
+            "PLN", 
+            "FNT", 
+            "LAN", 
+            "MKG", 
+            "MBS", 
+            "AZO", 
+            "IMT", 
+            "DTW", 
+            "CMX", 
+            "CIU"
+        ]
+    },
+    {
+        "_id" : "Kentucky",
+        "City" : [ 
+            "Paducah, KY", 
+            "Louisville, KY", 
+            "Lexington, KY", 
+            "Cincinnati, OH"
+        ],
+        "Code" : [ 
+            "PAH", 
+            "SDF", 
+            "LEX", 
+            "CVG"
+        ]
+    },
+    {
+        "_id" : "Hawaii",
+        "City" : [ 
+            "Hilo, HI", 
+            "Kahului, HI", 
+            "Lihue, HI", 
+            "Honolulu, HI", 
+            "Kona, HI"
+        ],
+        "Code" : [ 
+            "OGG", 
+            "ITO", 
+            "LIH", 
+            "HNL", 
+            "KOA"
+        ]
+    },
+    {
+        "_id" : "Arizona",
+        "City" : [ 
+            "Bullhead City, AZ", 
+            "Phoenix, AZ", 
+            "Tucson, AZ", 
+            "Yuma, AZ", 
+            "Flagstaff, AZ"
+        ],
+        "Code" : [ 
+            "IFP", 
+            "PHX", 
+            "TUS", 
+            "YUM", 
+            "FLG"
+        ]
+    },
+    {
+        "_id" : "Indiana",
+        "City" : [ 
+            "Fort Wayne, IN", 
+            "South Bend, IN", 
+            "Evansville, IN", 
+            "Indianapolis, IN"
+        ],
+        "Code" : [ 
+            "FWA", 
+            "EVV", 
+            "SBN", 
+            "IND"
+        ]
+    },
+    {
+        "_id" : "Pennsylvania",
+        "City" : [ 
+            "Latrobe, PA", 
+            "State College, PA", 
+            "Allentown/Bethlehem/Easton, PA", 
+            "Pittsburgh, PA", 
+            "Erie, PA", 
+            "Philadelphia, PA", 
+            "Scranton/Wilkes-Barre, PA", 
+            "Harrisburg, PA"
+        ],
+        "Code" : [ 
+            "SCE", 
+            "LBE", 
+            "ERI", 
+            "PIT", 
+            "PHL", 
+            "AVP", 
+            "ABE", 
+            "MDT"
+        ]
+    },
+    {
+        "_id" : "Minnesota",
+        "City" : [ 
+            "International Falls, MN", 
+            "Minneapolis, MN", 
+            "Brainerd, MN", 
+            "Bemidji, MN", 
+            "Hibbing, MN", 
+            "Rochester, MN", 
+            "Duluth, MN"
+        ],
+        "Code" : [ 
+            "INL", 
+            "BRD", 
+            "MSP", 
+            "RST", 
+            "HIB", 
+            "DLH", 
+            "BJI"
+        ]
+    },
+    {
+        "_id" : "Colorado",
+        "City" : [ 
+            "Pueblo, CO", 
+            "Aspen, CO", 
+            "Grand Junction, CO", 
+            "Eagle, CO", 
+            "Gunnison, CO", 
+            "Durango, CO", 
+            "Denver, CO", 
+            "Montrose/Delta, CO", 
+            "Colorado Springs, CO", 
+            "Hayden, CO"
+        ],
+        "Code" : [ 
+            "PUB", 
+            "GUC", 
+            "GJT", 
+            "ASE", 
+            "EGE", 
+            "DRO", 
+            "COS", 
+            "HDN", 
+            "DEN", 
+            "MTJ"
+        ]
+    },
+    {
+        "_id" : "New Hampshire",
+        "City" : [ 
+            "Manchester, NH"
+        ],
+        "Code" : [ 
+            "MHT"
+        ]
+    },
+    {
+        "_id" : "Ohio",
+        "City" : [ 
+            "Toledo, OH", 
+            "Cleveland, OH", 
+            "Columbus, OH", 
+            "Akron, OH", 
+            "Dayton, OH"
+        ],
+        "Code" : [ 
+            "TOL", 
+            "DAY", 
+            "CLE", 
+            "CMH", 
+            "CAK"
+        ]
+    },
+    {
+        "_id" : "Alaska",
+        "City" : [ 
+            "King Salmon, AK", 
+            "Gustavus, AK", 
+            "Tokeen, AK", 
+            "Petersburg, AK", 
+            "Barrow, AK", 
+            "Dillingham, AK", 
+            "Nome, AK", 
+            "Wrangell, AK", 
+            "Deadhorse, AK", 
+            "Kotzebue, AK", 
+            "Kodiak, AK", 
+            "Bethel, AK", 
+            "Adak Island, AK", 
+            "Anchorage, AK", 
+            "Fairbanks, AK", 
+            "Sitka, AK", 
+            "Juneau, AK", 
+            "Ketchikan, AK", 
+            "Yakutat, AK", 
+            "Cordova, AK"
+        ],
+        "Code" : [ 
+            "GST", 
+            "TKI", 
+            "ADK", 
+            "OTZ", 
+            "OME", 
+            "WRG", 
+            "ADQ", 
+            "AKN", 
+            "CDV", 
+            "BRW", 
+            "ANC", 
+            "SIT", 
+            "SCC", 
+            "FAI", 
+            "DLG", 
+            "JNU", 
+            "YAK", 
+            "PSG", 
+            "BET", 
+            "KTN"
+        ]
+    },
+    {
+        "_id" : "Massachusetts",
+        "City" : [ 
+            "Hyannis, MA", 
+            "Boston, MA", 
+            "Nantucket, MA", 
+            "Worcester, MA", 
+            "Martha's Vineyard, MA"
+        ],
+        "Code" : [ 
+            "HYA", 
+            "BOS", 
+            "ACK", 
+            "ORH", 
+            "MVY"
+        ]
+    },
+    {
+        "_id" : "Rhode Island",
+        "City" : [ 
+            "Providence, RI"
+        ],
+        "Code" : [ 
+            "PVD"
+        ]
+    },
+    {
+        "_id" : "California",
+        "City" : [ 
+            "Santa Rosa, CA", 
+            "Arcata/Eureka, CA", 
+            "Redding, CA", 
+            "Fresno, CA", 
+            "Monterey, CA", 
+            "Burbank, CA", 
+            "Sacramento, CA", 
+            "Ontario, CA", 
+            "Santa Ana, CA", 
+            "Mammoth Lakes, CA", 
+            "Los Angeles, CA", 
+            "Santa Barbara, CA", 
+            "Bakersfield, CA", 
+            "San Diego, CA", 
+            "San Francisco, CA", 
+            "San Luis Obispo, CA", 
+            "San Jose, CA", 
+            "Oakland, CA", 
+            "Palm Springs, CA", 
+            "Long Beach, CA"
+        ],
+        "Code" : [ 
+            "RDD", 
+            "SBP", 
+            "SBA", 
+            "FAT", 
+            "BUR", 
+            "LAX", 
+            "MRY", 
+            "SMF", 
+            "SAN", 
+            "SJC", 
+            "PSP", 
+            "STS", 
+            "ACV", 
+            "SNA", 
+            "MMH", 
+            "SFO", 
+            "BFL", 
+            "ONT", 
+            "OAK", 
+            "LGB"
+        ]
+    },
+    {
+        "_id" : "Texas",
+        "City" : [ 
+            "Harlingen/San Benito, TX", 
+            "Midland/Odessa, TX", 
+            "Lubbock, TX", 
+            "Brownsville, TX", 
+            "Houston, TX", 
+            "Abilene, TX", 
+            "San Antonio, TX", 
+            "Longview, TX", 
+            "Dallas/Fort Worth, TX", 
+            "Mission/McAllen/Edinburg, TX", 
+            "Austin, TX", 
+            "Wichita Falls, TX", 
+            "Killeen, TX", 
+            "Laredo, TX", 
+            "Waco, TX", 
+            "Corpus Christi, TX", 
+            "Dallas, TX", 
+            "Amarillo, TX", 
+            "El Paso, TX", 
+            "San Angelo, TX", 
+            "Beaumont/Port Arthur, TX", 
+            "College Station/Bryan, TX", 
+            "Tyler, TX"
+        ],
+        "Code" : [ 
+            "TYR", 
+            "ABI", 
+            "HOU", 
+            "MFE", 
+            "MAF", 
+            "CLL", 
+            "DAL", 
+            "ELP", 
+            "LRD", 
+            "LBB", 
+            "AUS", 
+            "SAT", 
+            "IAH", 
+            "HRL", 
+            "DFW", 
+            "BRO", 
+            "GRK", 
+            "SPS", 
+            "CRP", 
+            "AMA", 
+            "ACT", 
+            "GGG", 
+            "SJT", 
+            "BPT"
+        ]
+    },
+    {
+        "_id" : "New York",
+        "City" : [ 
+            "Newburgh/Poughkeepsie, NY", 
+            "Islip, NY", 
+            "Syracuse, NY", 
+            "Plattsburgh, NY", 
+            "Buffalo, NY", 
+            "Rochester, NY", 
+            "New York, NY", 
+            "Albany, NY", 
+            "White Plains, NY", 
+            "Binghamton, NY", 
+            "Elmira/Corning, NY", 
+            "Niagara Falls, NY", 
+            "Ithaca/Cortland, NY"
+        ],
+        "Code" : [ 
+            "SWF", 
+            "ITH", 
+            "JFK", 
+            "BGM", 
+            "ROC", 
+            "HPN", 
+            "BUF", 
+            "PBG", 
+            "ISP", 
+            "ELM", 
+            "IAG", 
+            "LGA", 
+            "SYR", 
+            "ALB"
+        ]
+    },
+    {
+        "_id" : "Iowa",
+        "City" : [ 
+            "Sioux City, IA", 
+            "Waterloo, IA", 
+            "Cedar Rapids/Iowa City, IA", 
+            "Des Moines, IA"
+        ],
+        "Code" : [ 
+            "SUX", 
+            "ALO", 
+            "CID", 
+            "DSM"
+        ]
+    },
+    {
+        "_id" : "Maryland",
+        "City" : [ 
+            "Baltimore, MD"
+        ],
+        "Code" : [ 
+            "BWI"
+        ]
+    },
+    {
+        "_id" : "Idaho",
+        "City" : [ 
+            "Lewiston, ID", 
+            "Pocatello, ID", 
+            "Boise, ID", 
+            "Sun Valley/Hailey/Ketchum, ID", 
+            "Twin Falls, ID", 
+            "Idaho Falls, ID"
+        ],
+        "Code" : [ 
+            "LWS", 
+            "PIH", 
+            "BOI", 
+            "TWF", 
+            "IDA", 
+            "SUN"
+        ]
+    },
+    {
+        "_id" : "Maine",
+        "City" : [ 
+            "Bangor, ME", 
+            "Portland, ME"
+        ],
+        "Code" : [ 
+            "BGR", 
+            "PWM"
+        ]
+    },
+    {
+        "_id" : "Louisiana",
+        "City" : [ 
+            "Alexandria, LA", 
+            "Lake Charles, LA", 
+            "Monroe, LA", 
+            "New Orleans, LA", 
+            "Baton Rouge, LA", 
+            "Lafayette, LA", 
+            "Shreveport, LA"
+        ],
+        "Code" : [ 
+            "AEX", 
+            "LCH", 
+            "MLU", 
+            "BTR", 
+            "LFT", 
+            "MSY", 
+            "SHV"
+        ]
+    },
+    {
+        "_id" : "Kansas",
+        "City" : [ 
+            "Manhattan/Ft. Riley, KS", 
+            "Garden City, KS", 
+            "Hays, KS", 
+            "Wichita, KS"
+        ],
+        "Code" : [ 
+            "GCK", 
+            "HYS", 
+            "MHK", 
+            "ICT"
+        ]
+    },
+    {
+        "_id" : "Tennessee",
+        "City" : [ 
+            "Bristol/Johnson City/Kingsport, TN", 
+            "Memphis, TN", 
+            "Nashville, TN", 
+            "Chattanooga, TN", 
+            "Knoxville, TN"
+        ],
+        "Code" : [ 
+            "TRI", 
+            "MEM", 
+            "BNA", 
+            "CHA", 
+            "TYS"
+        ]
+    },
+    {
+        "_id" : "Puerto Rico",
+        "City" : [ 
+            "Ponce, PR", 
+            "Aguadilla, PR", 
+            "San Juan, PR"
+        ],
+        "Code" : [ 
+            "BQN", 
+            "PSE", 
+            "SJU"
+        ]
+    },
+    {
+        "_id" : "North Carolina",
+        "City" : [ 
+            "New Bern/Morehead/Beaufort, NC", 
+            "Jacksonville/Camp Lejeune, NC", 
+            "Asheville, NC", 
+            "Fayetteville, NC", 
+            "Charlotte, NC", 
+            "Greensboro/High Point, NC", 
+            "Raleigh/Durham, NC", 
+            "Wilmington, NC"
+        ],
+        "Code" : [ 
+            "OAJ", 
+            "AVL", 
+            "FAY", 
+            "CLT", 
+            "RDU", 
+            "GSO", 
+            "EWN", 
+            "ILM"
+        ]
+    },
+    {
+        "_id" : "Connecticut",
+        "City" : [ 
+            "Hartford, CT"
+        ],
+        "Code" : [ 
+            "BDL"
+        ]
+    },
+    {
+        "_id" : "New Jersey",
+        "City" : [ 
+            "Atlantic City, NJ", 
+            "Trenton, NJ", 
+            "Newark, NJ"
+        ],
+        "Code" : [ 
+            "ACY", 
+            "TTN", 
+            "EWR"
+        ]
+    },
+    {
+        "_id" : "U.S. Virgin Islands",
+        "City" : [ 
+            "Christiansted, VI", 
+            "Charlotte Amalie, VI"
+        ],
+        "Code" : [ 
+            "STX", 
+            "STT"
+        ]
+    },
+    {
+        "_id" : "Oklahoma",
+        "City" : [ 
+            "Lawton/Fort Sill, OK", 
+            "Stillwater, OK", 
+            "Tulsa, OK", 
+            "Oklahoma City, OK"
+        ],
+        "Code" : [ 
+            "LAW", 
+            "TUL", 
+            "SWO", 
+            "OKC"
+        ]
+    },
+    {
+        "_id" : "Florida",
+        "City" : [ 
+            "Punta Gorda, FL", 
+            "Gainesville, FL", 
+            "Tallahassee, FL", 
+            "Key West, FL", 
+            "Tampa, FL", 
+            "St. Augustine, FL", 
+            "Miami, FL", 
+            "Fort Myers, FL", 
+            "Daytona Beach, FL", 
+            "West Palm Beach/Palm Beach, FL", 
+            "Fort Lauderdale, FL", 
+            "Panama City, FL", 
+            "Pensacola, FL", 
+            "Melbourne, FL", 
+            "Orlando, FL", 
+            "Jacksonville, FL", 
+            "Valparaiso, FL", 
+            "Sarasota/Bradenton, FL"
+        ],
+        "Code" : [ 
+            "GNV", 
+            "TLH", 
+            "DAB", 
+            "PNS", 
+            "UST", 
+            "EYW", 
+            "TPA", 
+            "RSW", 
+            "PGD", 
+            "JAX", 
+            "FLL", 
+            "MLB", 
+            "PBI", 
+            "MIA", 
+            "MCO", 
+            "SRQ", 
+            "VPS", 
+            "ECP"
+        ]
+    },
+    {
+        "_id" : "New Mexico",
+        "City" : [ 
+            "Santa Fe, NM", 
+            "Hobbs, NM", 
+            "Roswell, NM", 
+            "Albuquerque, NM"
+        ],
+        "Code" : [ 
+            "ROW", 
+            "SAF", 
+            "HOB", 
+            "ABQ"
+        ]
+    },
+    {
+        "_id" : "Alabama",
+        "City" : [ 
+            "Montgomery, AL", 
+            "Birmingham, AL", 
+            "Huntsville, AL", 
+            "Mobile, AL", 
+            "Dothan, AL"
+        ],
+        "Code" : [ 
+            "BHM", 
+            "HSV", 
+            "MOB", 
+            "MGM", 
+            "DHN"
+        ]
+    },
+    {
+        "_id" : "Wyoming",
+        "City" : [ 
+            "Casper, WY", 
+            "Cody, WY", 
+            "Gillette, WY", 
+            "Rock Springs, WY", 
+            "Jackson, WY", 
+            "Laramie, WY"
+        ],
+        "Code" : [ 
+            "LAR", 
+            "JAC", 
+            "GCC", 
+            "CPR", 
+            "COD", 
+            "RKS"
+        ]
+    },
+    {
+        "_id" : "Montana",
+        "City" : [ 
+            "Butte, MT", 
+            "Great Falls, MT", 
+            "Helena, MT", 
+            "Billings, MT", 
+            "West Yellowstone, MT", 
+            "Bozeman, MT", 
+            "Missoula, MT", 
+            "Kalispell, MT"
+        ],
+        "Code" : [ 
+            "WYS", 
+            "GTF", 
+            "HLN", 
+            "BTM", 
+            "BIL", 
+            "BZN", 
+            "MSO", 
+            "FCA"
+        ]
+    },
+    {
+        "_id" : "South Carolina",
+        "City" : [ 
+            "Myrtle Beach, SC", 
+            "Greer, SC", 
+            "Columbia, SC", 
+            "Charleston, SC"
+        ],
+        "Code" : [ 
+            "MYR", 
+            "GSP", 
+            "CAE", 
+            "CHS"
+        ]
+    },
+    {
+        "_id" : "Virginia",
+        "City" : [ 
+            "Newport News/Williamsburg, VA", 
+            "Washington, DC", 
+            "Richmond, VA", 
+            "Roanoke, VA", 
+            "Norfolk, VA", 
+            "Charlottesville, VA"
+        ],
+        "Code" : [ 
+            "ROA", 
+            "CHO", 
+            "IAD", 
+            "PHF", 
+            "ORF", 
+            "DCA", 
+            "RIC"
+        ]
+    },
+    {
+        "_id" : "North Dakota",
+        "City" : [ 
+            "Devils Lake, ND", 
+            "Jamestown, ND", 
+            "Fargo, ND", 
+            "Minot, ND", 
+            "Bismarck/Mandan, ND", 
+            "Grand Forks, ND", 
+            "Williston, ND"
+        ],
+        "Code" : [ 
+            "MOT", 
+            "DVL", 
+            "JMS", 
+            "FAR", 
+            "BIS", 
+            "ISN", 
+            "GFK"
+        ]
+    },
+    {
+        "_id" : "Utah",
+        "City" : [ 
+            "Cedar City, UT", 
+            "St. George, UT", 
+            "Salt Lake City, UT"
+        ],
+        "Code" : [ 
+            "CDC", 
+            "SGU", 
+            "SLC"
+        ]
+    },
+    {
+        "_id" : "Oregon",
+        "City" : [ 
+            "North Bend/Coos Bay, OR", 
+            "Portland, OR", 
+            "Medford, OR", 
+            "Bend/Redmond, OR", 
+            "Eugene, OR"
+        ],
+        "Code" : [ 
+            "PDX", 
+            "RDM", 
+            "OTH", 
+            "EUG", 
+            "MFR"
+        ]
+    },
+    {
+        "_id" : "Nevada",
+        "City" : [ 
+            "Elko, NV", 
+            "Reno, NV", 
+            "Las Vegas, NV"
+        ],
+        "Code" : [ 
+            "EKO", 
+            "RNO", 
+            "LAS"
+        ]
+    },
+    {
+        "_id" : "Mississippi",
+        "City" : [ 
+            "Gulfport/Biloxi, MS", 
+            "Jackson/Vicksburg, MS", 
+            "Columbus, MS", 
+            "Meridian, MS", 
+            "Hattiesburg/Laurel, MS"
+        ],
+        "Code" : [ 
+            "GTR", 
+            "JAN", 
+            "GPT", 
+            "PIB", 
+            "MEI"
+        ]
+    }
+]
