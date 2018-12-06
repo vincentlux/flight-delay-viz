@@ -91,7 +91,11 @@ function heatMap(data) {
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-
+    // Delete tooptip there is already one
+    var d3Tips = d3.selectAll(".d3-tip");
+    if (d3Tips.size() > 0){
+        d3Tips.remove();
+    }
 
     var tool_tip = d3.tip()
         .attr("class", "d3-tip")
